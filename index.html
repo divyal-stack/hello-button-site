@@ -52,7 +52,7 @@
   <div class="card">
     <h1>👋 Hello!</h1>
     <p>Click the button below.</p>
-    <button id="btn">Click me</button>
+    <button id="action-btn">Click me</button>
     <div id="message"></div>
   </div>
 
@@ -74,14 +74,14 @@
       ["#8b5cf6", "#6366f1"]
     ];
     let count = 0;
-    const btn = document.getElementById("btn");
+    const btn = document.getElementById("action-btn");
     const message = document.getElementById("message");
     btn.addEventListener("click", () => {
       const i = count % messages.length;
       message.textContent = messages[i] + "  (" + (count + 1) + ")";
       document.documentElement.style.setProperty("--bg1", colors[i][0]);
       document.documentElement.style.setProperty("--bg2", colors[i][1]);
-      // count++;  // BUG: counter no longer increments — message + background stay stuck
+      count++;
     });
   </script>
 </body>
