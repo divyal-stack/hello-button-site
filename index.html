@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello Button</title>
+  <style>
+    :root { --bg1: #6366f1; --bg2: #8b5cf6; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      transition: background 0.6s ease;
+      color: #fff;
+      text-align: center;
+      padding: 24px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    p { opacity: 0.85; margin-bottom: 28px; font-size: 0.95rem; }
+    button {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #4f46e5;
+      background: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 32px;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+    button:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28); }
+    button:active { transform: translateY(0); }
+    #message { margin-top: 22px; font-size: 1.1rem; min-height: 1.4em; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>👋 Hello!</h1>
+    <p>Click the button below.</p>
+    <button id="btn">Click me</button>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    const messages = [
+      "🎉 You clicked it!",
+      "✨ Nice one!",
+      "🚀 Keep going!",
+      "🌈 Colorful, isn't it?",
+      "😎 You're a natural.",
+      "🔥 On a roll!"
+    ];
+    const colors = [
+      ["#6366f1", "#8b5cf6"],
+      ["#ec4899", "#f43f5e"],
+      ["#06b6d4", "#3b82f6"],
+      ["#10b981", "#22c55e"],
+      ["#f59e0b", "#ef4444"],
+      ["#8b5cf6", "#6366f1"]
+    ];
+    let count = 0;
+    const btn = document.getElementById("btn");
+    const message = document.getElementById("message");
+    btn.addEventListener("click", () => {
+      const i = count % messages.length;
+      message.textContent = messages[i] + "  (" + (count + 1) + ")";
+      document.documentElement.style.setProperty("--bg1", colors[i][0]);
+      document.documentElement.style.setProperty("--bg2", colors[i][1]);
+      count++;
+    });
+  </script>
+</body>
+</html>
