@@ -52,7 +52,9 @@
   <div class="card">
     <h1>👋 Hello!</h1>
     <p>Click the button below.</p>
-    <button id="action-btn">Click me</button>
+    <div class="btn-wrap">
+      <button>Click me</button>
+    </div>
     <div id="message"></div>
   </div>
 
@@ -74,7 +76,7 @@
       ["#8b5cf6", "#6366f1"]
     ];
     let count = 0;
-    const btn = document.getElementById("action-btn");
+    const btn = document.querySelector(".btn-wrap button");
     const message = document.getElementById("message");
     btn.addEventListener("click", () => {
       const i = count % messages.length;
