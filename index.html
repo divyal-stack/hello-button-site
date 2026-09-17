@@ -81,7 +81,7 @@
       message.textContent = messages[i] + "  (" + (count + 1) + ")";
       document.documentElement.style.setProperty("--bg1", colors[i][0]);
       document.documentElement.style.setProperty("--bg2", colors[i][1]);
-      count++;
+      // count++;  // BUG: counter no longer increments — message + background stay stuck
     });
   </script>
 </body>
